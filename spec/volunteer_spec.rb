@@ -4,6 +4,13 @@ require 'spec_helper'
 # <--------------------------------------------->
 
 describe Volunteer do
+
+  before(:each) do
+    @project = Project.new({:title => 'Teaching Kids to Code', :id => 1})
+    @project.save
+  end
+
+
   describe '#name' do
     it 'returns the name of the volunteer' do
       test_volunteer = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
@@ -31,13 +38,13 @@ describe Volunteer do
       expect(Volunteer.all).to eq []
     end
 
-    # it 'returns all volunteers' do
-    #   volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
-    #   volunteer1.save
-    #   volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
-    #   volunteer2.save
-    #   expect(Volunteer.all).to eq [volunteer1, volunteer2]
-    # end
+    it 'returns all volunteers' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
+      volunteer2.save
+      expect(Volunteer.all).to eq [volunteer1, volunteer2]
+    end
   end
 
 #   describe '#save' do
