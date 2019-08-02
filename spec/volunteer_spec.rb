@@ -1,4 +1,4 @@
-require 'spec_helper'
+# require 'spec_helper'
 # <--------------------------------------------->
 # specs provided by epicodus as a requirem,ent for this project
 # <--------------------------------------------->
