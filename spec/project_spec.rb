@@ -81,18 +81,19 @@ describe Project do
     it 'allows a user to update a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-#------------------> changed next line to just a title change as the previous code entered a hash and boke the update results by returning a has instead of a String containing the title value.------------------> 
+#------------------> changed next line to just a title change as the previous code entered a hash and boke the update results by returning a has instead of a String containing the title value.------------------>
       project.update('Teaching Ruby to Kids')
       expect(project.title).to eq 'Teaching Ruby to Kids'
     end
   end
 
-#   context '#delete' do
-#     it 'allows a user to delete a project' do
-#       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#       project.save
-#       project.delete
-#       expect(Project.all).to eq []
-#     end
-#   end
+  context '#delete' do
+    it 'allows a user to delete a project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      project.delete
+      expect(Project.all).to eq []
+    end
+  end
+
 end
