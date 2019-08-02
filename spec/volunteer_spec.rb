@@ -1,16 +1,16 @@
-# require 'spec_helper'
+require 'spec_helper'
 # <--------------------------------------------->
 # specs provided by epicodus as a requirem,ent for this project
 # <--------------------------------------------->
 
-# describe Volunteer do
-#   describe '#name' do
-#     it 'returns the name of the volunteer' do
-#       test_volunteer = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
-#       expect(test_volunteer.name).to eq 'Jane'
-#     end
-#   end
-#
+describe Volunteer do
+  describe '#name' do
+    it 'returns the name of the volunteer' do
+      test_volunteer = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      expect(test_volunteer.name).to eq 'Jane'
+    end
+  end
+
 #   describe '#project_id' do
 #     it 'returns the project_id of the volunteer' do
 #       test_volunteer = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
@@ -57,4 +57,4 @@
 #       expect(Volunteer.find(volunteer1.id)).to eq volunteer1
 #     end
 #   end
-# end
+end
