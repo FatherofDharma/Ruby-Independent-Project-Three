@@ -21,11 +21,14 @@ This application is an independent coding project from a Ruby coding class at Ep
 ## Specs
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
+|creates a new project and returns a title and id|Test|Title: Test id: 1|
+|saves the new project in database and returns it|New Project Title: Test|Test id: 1|
+|returns all current project titles and id's|Project.all|Title: Test 1 , id:1 ;Title: Test 2 , id: 2|
+|updates a current project to change the title (Example: Title: Test1, id: 1)|New Title: Test One|Title: Test One id: 1|
+|permanently removes a project from the database (Example: Project.all results in [project1, project2])|project1.delete|Project.all results in [project2]|
 ||||
 ||||
 ||||
-||||
-
 
 ## Known Bugs
 
