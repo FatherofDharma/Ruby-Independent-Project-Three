@@ -9,7 +9,12 @@ class Volunteer
   end
 
   def ==(volunteer_to_compare)
-    self.name == volunteer_to_compare.name
+    if volunteer_to_compare != nil
+      self.name == volunteer_to_compare.name
+      self.project_id == volunteer_to_compare.project_id
+    else
+      false
+    end
   end
 
   def self.all
@@ -18,7 +23,7 @@ class Volunteer
     returned_volunteers.each() do |volunteer|
       name = volunteer.fetch('name')
       id = volunteer.fetch('id').to_i
-      project_id = volunteer.fetch('project_id')
+      project_id = volunteer.fetch('project_id').to_i
       volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => project_id}))
     end
     volunteers
@@ -35,10 +40,21 @@ class Volunteer
       name = volunteer.fetch('name')
       project_id = volunteer.fetch('project_id').to_i
       id = volunteer.fetch('id').to_i
-      Volunteer.new({:name => name, :project_id => project_id, :id => id})
+      Volunteer.new({:name => name, :id => id, :project_id => project_id})
     else
       nil
     end
+  end
+
+  def self.find_by_project(proj_id)
+    volunteers = []
+    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{proj_id};")
+    returned_volunteers.each() do |volunteer|
+      name = volunteer.fetch('name')
+      id = volunteer.fetch('id').to_i
+      volunteers.push(Volunteer.new({:name => name, :id => id, :project_id => proj_id}))
+    end
+    volunteers
   end
 
 end
