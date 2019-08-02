@@ -40,6 +40,8 @@ get('/projects/:id/edit') do
   erb(:edit_project)
 end
 
-patch('/project/:id') do
-
+patch('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  @project.update(params[:project_title])
+  redirect to('/projects')
 end
