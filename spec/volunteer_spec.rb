@@ -10,7 +10,6 @@ describe Volunteer do
     @project.save
   end
 
-
   describe '#name' do
     it 'returns the name of the volunteer' do
       test_volunteer = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
