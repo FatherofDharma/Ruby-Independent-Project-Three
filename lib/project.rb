@@ -1,6 +1,6 @@
 class Project
-  attr_accessor :title, :id
-
+  attr_accessor :title
+  attr_reader :id
   def initialize(attributes)
     @title = attributes.fetch(:title)
     @id = attributes.fetch(:id)
@@ -31,5 +31,10 @@ class Project
     title = project.fetch('title')
     id = project.fetch('id').to_i
     Project.new({:title => title, :id => id})
+  end
+
+  def update(title)
+    @title = title
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
   end
 end
