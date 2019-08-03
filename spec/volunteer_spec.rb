@@ -86,6 +86,15 @@ describe Volunteer do
     end
   end
 
+  context '#update' do
+    it 'allows a user to edit a volunteer' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => @project.id, :id => nil})
+      volunteer1.save
+      volunteer1.update("Harry", @project.id)
+      expect(volunteer1.name).to eq ('Harry')
+    end
+  end
+
   context '#delete' do
     it 'allows a user to delete a volunteer' do
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => @project.id, :id => nil})
