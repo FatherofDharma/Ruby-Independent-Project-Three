@@ -1,14 +1,14 @@
-# require "capybara/rspec"
-# require "./app"
-# require "pry"
-# require('spec_helper')
+require "capybara/rspec"
+require "./app"
+require "pry"
+require('spec_helper')
 
 # <--------------------------------------------->
-# specs provided by epicodus as a requirem,ent for this project
+# specs provided by epicodus as a requirement for this project
 # <--------------------------------------------->
 
-# Capybara.app = Sinatra::Application
-# set(:show_exceptions, false)
+Capybara.app = Sinatra::Application
+set(:show_exceptions, false)
 
 # ------------------------------>
 
@@ -19,14 +19,15 @@
 
 # ------------------------------>
 
-# describe 'the project creation path', {:type => :feature} do
-#   it 'takes the user to the homepage where they can create a project' do
-#     visit '/'
-#     fill_in('title', :with => 'Teaching Kids to Code')
-#     click_button('Create Project')
-#     expect(page).to have_content('Teaching Kids to Code')
-#   end
-# end
+describe 'the project creation path', {:type => :feature} do
+  it 'takes the user to the homepage where they can create a project' do
+    visit '/'
+    click_link('Add a new project')
+    fill_in('project_title', :with => 'Teaching Kids to Code')
+    click_button('Create Project')
+    expect(page).to have_content('Teaching Kids to Code')
+  end
+end
 
 # ------------------------------>
 
