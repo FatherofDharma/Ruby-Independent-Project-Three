@@ -37,18 +37,18 @@ end
 # ------------------------------>
 
 
-# describe 'the project update path', {:type => :feature} do
-#   it 'allows a user to change the name of the project' do
-#     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#     test_project.save
-#     visit '/'
-#     click_link('Teaching Kids to Code')
-#     click_link('Edit Project')
-#     fill_in('title', :with => 'Teaching Ruby to Kids')
-#     click_button('Update Project')
-#     expect(page).to have_content('Teaching Ruby to Kids')
-#   end
-# end
+describe 'the project update path', {:type => :feature} do
+  it 'allows a user to change the name of the project' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    visit '/'
+    click_link('Teaching Kids to Code')
+    click_link('Edit the project')
+    fill_in('project_title', :with => 'Teaching Ruby to Kids')
+    click_button('Edit')
+    expect(page).to have_content('Teaching Ruby to Kids')
+  end
+end
 
 # ------------------------------>
 
